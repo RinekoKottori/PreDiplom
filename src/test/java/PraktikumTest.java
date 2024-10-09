@@ -1,18 +1,20 @@
-import praktikum.AccountTest;
+import io.qameta.allure.junit4.DisplayName;
+import org.junit.Test;
+import praktikum.Account;
 
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertEquals;
 
-public class Praktikum {
+public class PraktikumTest {
     private static String name;
 
-    public static void main(String[] args) {
-        AccountTest nameCheckMinLength = new AccountTest("Ти");
-        AccountTest nameCheckMaxLength = new AccountTest("Тимоти Шаламбаладуйка");
-        AccountTest nameCheckFirstChar = new AccountTest(" Тимоти Шаламе");
-        AccountTest nameCheckLastChar = new AccountTest("Тимоти Шаламе ");
-        AccountTest corrcetName = new AccountTest("Тимоти Шаламе");
-
+    @Test
+    @DisplayName("Check user name")
+    public void main() {
+        Account nameCheckMinLength = new Account("Ти");
+        Account nameCheckMaxLength = new Account("Тимоти Шаламбаладуйка");
+        Account nameCheckFirstChar = new Account(" Тимоти Шаламе");
+        Account nameCheckLastChar = new Account("Тимоти Шаламе ");
+        Account corrcetName = new Account("Тимоти Шаламе");
 
         boolean result1 = nameCheckMinLength.checkNameToEmboss();
         assertEquals("Too short name, try again", false, result1);
